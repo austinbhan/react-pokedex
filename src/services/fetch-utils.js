@@ -4,4 +4,4 @@ export async function getPokemon() {
   const data = await rawData.json();
 
   return data;
-}
+} // No different than when we were using them for Supabase. Only grabs data from somewhere and giving it to you in React
