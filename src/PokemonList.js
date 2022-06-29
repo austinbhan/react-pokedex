@@ -9,16 +9,18 @@ export default function PokemonList() {
   const [pokemon, setPokemon] = useState([]);
   const [pokemonQuery, setPokemonQuery] = useState([]);
 
+  async function fetchAndStorePokemon() {
+    const data = await getPokemon(pokemonQuery);  
+    
+    setPokemon(data.results);
+  }
   useEffect(() => {
-    async function doLoad() {
-      const data = await getPokemon();  
-      setPokemon(data.results);
-    }
-    doLoad();
+    fetchAndStorePokemon();
   }, []);
 
   async function handleSubmit(e) {
     e.preventDefault();
+    await fetchAndStorePokemon();
   }
 
   console.log(pokemonQuery);
