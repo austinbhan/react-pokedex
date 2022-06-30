@@ -1,7 +1,13 @@
 .App {
   text-align: center;
+  display: flex;
+  flex-direction: row;
 }
 
 .pokemon img {
   width: 100px;
+}
+
+#title {
+  text-align: center;
 }
