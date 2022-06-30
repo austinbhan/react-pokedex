@@ -1,7 +1,33 @@
 import React from 'react';
+import { useState, useEffect } from 'react';
+import { getBusinesses } from './services/fetch-utils';  // Change This
+import BusinessessList from './BusinessesList';
 
 export default function YelpSearch() {
+  const [businesses, setBusinesses] = useState([]);
+  const [businessQuery, setBusinessQuery] = useState([]);
+  
+  async function fetchAndStoreBusinesses() {
+    const data = await getBusinesses(businessQuery);  
+      
+    setBusinesses(data.businesses);
+  }
+  useEffect(() => {
+    fetchAndStoreBusinesses();
+  }, []); // eslint-disable-line
+  
+  async function handleYelpSubmit(e) {
+    e.preventDefault();
+    await fetchAndStoreBusinesses();
+    setBusinessQuery(' ');
+  }
   return (
-    <div>Yelp Search has successfully been imported</div>
+    <>
+      <form onSubmit={handleYelpSubmit} >
+        <input onChange={e => setBusinessQuery(e.target.value)}/>
+        <button>Search</button>
+      </form>
+      <BusinessessList businesses={businesses}/>
+    </>
   );
 }
