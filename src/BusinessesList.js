@@ -2,7 +2,7 @@ import React from 'react';
 import './App.css';
 
 export default function BusinessessList({ businesses }) {
-  console.log(businesses, 'string');
+  // console.log(businesses, 'string');
   return (
     <>
       <div className="businesses">
