@@ -1,5 +1,5 @@
 import './App.css';
-import PokemonList from './PokemonList';
+import PokemonSearch from './PokemonSearch';
 
 function App() {
 
@@ -7,7 +7,9 @@ function App() {
   return (
     <div className="App">
       <h1>This is the front page</h1>
-      <PokemonList />
+      <div className="pokemon-list">
+        <PokemonSearch />
+      </div>
     </div>
   );
 }
