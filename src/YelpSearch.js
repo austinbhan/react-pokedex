@@ -5,13 +5,14 @@ import BusinessessList from './BusinessesList';
 
 export default function YelpSearch() {
   const [businesses, setBusinesses] = useState([]);
-  const [businessQuery, setBusinessQuery] = useState([]);
+  const [businessQuery, setBusinessQuery] = useState('portland');
   
   async function fetchAndStoreBusinesses() {
     const data = await getBusinesses(businessQuery);  
-      
+    console.log(data.businesses);
     setBusinesses(data.businesses);
   }
+
   useEffect(() => {
     fetchAndStoreBusinesses();
   }, []); // eslint-disable-line
