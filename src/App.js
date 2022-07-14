@@ -1,24 +1,22 @@
-import logo from './logo.svg';
 import './App.css';
+import PokemonSearch from './PokemonSearch';
+import YelpSearch from './YelpSearch';
 
 function App() {
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <h1 id="title">This is the front page</h1>
+      <div className="App">
+        <div className="pokemon-list">
+          <PokemonSearch />
+        </div>
+        <div className="yelp-list">
+          <YelpSearch />
+        </div>
+      </div>
+    </>
   );
 }
 

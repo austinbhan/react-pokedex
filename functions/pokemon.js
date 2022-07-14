@@ -9,14 +9,13 @@ const headers = {
 
 
 exports.handler = async (event, context) => {
-  console.log('Cat Endpoint console');
   try {
-    const response = await fetch('https://cat-fact.herokuapp.com/facts');
+    console.log('query params', event.queryStringParameters);
+    const response = await fetch(`https://pokedex-alchemy.herokuapp.com/api/pokedex?pokemon=${event.queryStringParameters.pokeQuery}`);
     const data = await response.json();
     const json = JSON.stringify(data);
-    
     return { 
-      statusCode: 200, 
+      statusCode: 200,  
       headers,
       body: json
     };
