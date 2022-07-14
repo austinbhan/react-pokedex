@@ -9,7 +9,6 @@ export default function YelpSearch() {
   
   async function fetchAndStoreBusinesses() {
     const data = await getBusinesses(businessQuery);  
-    // console.log(data.businesses);
     setBusinesses(data.businesses);
   }
 
